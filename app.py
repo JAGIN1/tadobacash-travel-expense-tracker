@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import gspread
+import json
 
 st.set_page_config(
     page_title="Travel Expense Tracker",
@@ -13,7 +14,8 @@ st.caption("Group Travel Expense Tracker")
 
 SHEET_ID = "PASTE_YOUR_SHEET_ID_HERE"
 
-gc = gspread.service_account(filename=r"D:\TADOBACASH\credentials.json")
+creds = json.loads(st.secrets["gcp"]["credentials"])
+gc = gspread.service_account_from_dict(creds)
 spreadsheet = gc.open_by_key("1pJOFCVAY0gTCaRu_xM0AXiGea-6kxz1-EmOYOeFZhv8")
 
 members_ws = spreadsheet.worksheet("Members")
