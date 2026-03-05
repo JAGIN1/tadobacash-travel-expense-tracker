@@ -12,7 +12,7 @@ st.caption("Group Travel Expense Tracker")
 # GOOGLE SHEET CONFIG
 # -----------------------------
 
-SHEET_ID = "PASTE_YOUR_SHEET_ID_HERE"
+SHEET_ID = "1pJOFCVAY0gTCaRu_xM0AXiGea-6kxz1-EmOYOeFZhv8"
 
 creds = json.loads(st.secrets["gcp"]["credentials"])
 gc = gspread.service_account_from_dict(creds)
